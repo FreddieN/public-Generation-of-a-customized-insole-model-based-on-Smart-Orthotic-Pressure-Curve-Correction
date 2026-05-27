@@ -1,0 +1,23 @@
+{
+    "moulds": {
+        "0.45v_0.89h": {
+            "recordings": [
+                "130526-InverseDesignValidation/0.45v_0.89h_batch1serial_record_20260513_151607.txt",
+                "130526-InverseDesignValidation/0.45_0.89h_batch2serial_record_20260513_152741.txt",
+                "130526-InverseDesignValidation/0.45v_0.89h_50_batch3serial_record_20260513_154731.txt",
+                "130526-InverseDesignValidation/0.45_0.89_50_batch4serial_record_20260513_155136.txt"            ]
+        },
+       "0.34v_0.67h": {
+            "recordings": [
+                "130526-InverseDesignValidation/0.34v_0.67h_50_batch1serial_record_20260513_132921.txt",
+                "130526-InverseDesignValidation/0.34v_0.67h_50_batch2serial_record_20260513_134326.txt"
+            ]
+        },
+        "0.56v_1.11h": {
+            "recordings": [
+                "130526-InverseDesignValidation/0.56v_1.11h_batch1serial_record_20260513_143624.txt",
+                "130526-InverseDesignValidation/0.56v_1.11h_batch2serial_record_20260513_145602.txt"
+            ]
+        }
+    }
+}

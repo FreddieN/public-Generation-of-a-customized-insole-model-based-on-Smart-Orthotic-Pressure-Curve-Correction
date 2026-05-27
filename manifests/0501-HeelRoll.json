@@ -1,0 +1,46 @@
+{
+    "moulds": {
+        "0": {
+            "recordings": [
+                "0501-HeelRoll/0_50_batch1serial_record_20260501_155536.txt",
+                "0501-HeelRoll/0_50_batch2serial_record_20260501_160645.txt"
+            ]
+        },
+        "1v": {
+            "recordings": [
+                "0501-HeelRoll/1v_50_batch1serial_record_20260501_191046.txt",
+                "0501-HeelRoll/1v_50_batch2serial_record_20260501_191546.txt"
+            ]
+        },
+        "1h": {
+             "recordings": [
+                "0501-HeelRoll/1h_50_batch1serial_record_20260501_163910.txt",
+                "0501-HeelRoll/1h_50_batch2serial_record_20260501_164304.txt"
+            ]
+        },
+        "1.5v": {
+             "recordings": [
+                "0501-HeelRoll/1.5v_50_batch1serial_record_20260501_204409.txt",
+                "0501-HeelRoll/1.5v_50_batch2serial_record_20260501_204836.txt"
+            ]
+        },
+        "2v": {
+            "recordings": [
+                "0501-HeelRoll/2v_50_batch1serial_record_20260501_150257.txt",
+                "0501-HeelRoll/2v_50_batch2serial_record_20260501_151226.txt"
+            ]
+        },
+        "2h": {
+             "recordings": [
+                "0501-HeelRoll/2h_50_batch1serial_record_20260501_170553.txt",
+                "0501-HeelRoll/2h_50_batch2serial_record_20260501_171409.txt"
+            ]
+        },
+        "3h": {
+             "recordings": [
+                "0501-HeelRoll/3h_50_batch1serial_record_20260501_195813.txt",
+                "0501-HeelRoll/3h_50_batch2serial_record_20260501_200217.txt"
+            ]
+        }
+    }
+}
