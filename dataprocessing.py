@@ -452,9 +452,9 @@ def get_stage_cop_xy_horizontal_vertical(manifest):
             manifest_mould_name = horizontal_range[i]
             x_value.append(manifest_cop_data[manifest_mould_name].iloc[stage]["CoP_x"])
             y_value.append(manifest_cop_data[manifest_mould_name].iloc[stage]["CoP_y"])
-            overall_stage_cop_xy["horizontal"]["stage"][stage]["x"] = x_value
-            overall_stage_cop_xy["horizontal"]["stage"][stage]["y"] = y_value
-            overall_stage_cop_xy["horizontal"]["stage"][stage]["degree"] = degree_value
+        overall_stage_cop_xy["horizontal"]["stage"][stage]["x"] = x_value
+        overall_stage_cop_xy["horizontal"]["stage"][stage]["y"] = y_value
+        overall_stage_cop_xy["horizontal"]["stage"][stage]["degree"] = degree_value
     return overall_stage_cop_xy
 
         
