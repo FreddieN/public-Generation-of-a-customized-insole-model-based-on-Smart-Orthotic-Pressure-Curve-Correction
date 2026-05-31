@@ -454,7 +454,7 @@ def display_individual_manifest_mould_stacked_cop(selected_manifest=None, select
     plot_cop(overall_cop_df)
     for i in range(0, len(stacked_cop_df), 10):
         step_cop = stacked_cop_df.iloc[i : i + 10]
-        plot_cop(step_cop, color="yellow", alpha=0.2)
+        plot_cop(step_cop, color="blue", alpha=0.2)
     if(display):
         plt.show()
     return force_map
