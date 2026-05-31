@@ -98,8 +98,9 @@ def plot_insole_image():
     for sensor, coords in sensor_coords.items():
         plt.plot([coords[0]], [coords[1]], marker='x', markersize=3, label=f"Channel {sensor}")
         plt.text(coords[0]-5, coords[1]+8, str(sensor), fontsize=14, color="white")
-
     # plt.legend()
+    ax.text(5, 12, 'Heel', bbox={'facecolor': 'white', 'alpha': 1, 'pad': 5})
+    ax.text(202, 12, 'Toe', bbox={'facecolor': 'white', 'alpha': 1, 'pad': 5})
     return fig, ax
 
 img_width = 220
@@ -116,7 +117,7 @@ def plot_force_map(force_sensor_readings, title=None):
 
     fixed_levels = np.linspace(0, 12, 16)
 
-    CS = ax.tricontourf(X, Y, Z, levels=fixed_levels, alpha=0.7, vmin=0, vmax=12, cmap='inferno')
+    CS = ax.tricontourf(X, Y, Z, levels=fixed_levels, alpha=0.9, vmin=0, vmax=12, cmap='YlOrRd')
     CS.set_clim(0, 12)
     cbar = plt.colorbar(CS, ax=ax, shrink=0.8)
     cbar.ax.set_ylabel('Force (N)', rotation=270)
@@ -156,7 +157,7 @@ def plot_animated_step_force_map(testset, batch, selected_step, title, frame_int
 
     fixed_levels = np.linspace(0, 12, 16)
 
-    CS = ax.tricontourf(X, Y, Z, levels=fixed_levels, alpha=0.7, vmin=0, vmax=12, cmap='inferno')
+    CS = ax.tricontourf(X, Y, Z, levels=fixed_levels, alpha=0.9, vmin=0, vmax=12, cmap='YlOrRd')
     CS.set_clim(0, 12)
     cbar = plt.colorbar(CS, ax=ax, shrink=0.8)
     cbar.ax.set_ylabel('Force (N)', rotation=270)
@@ -179,7 +180,7 @@ def plot_animated_step_force_map(testset, batch, selected_step, title, frame_int
         
         CS.remove()
 
-        CS = ax.tricontourf(X, Y, new_Z, levels=fixed_levels, alpha=0.7, vmin=0, vmax=12, cmap='inferno')
+        CS = ax.tricontourf(X, Y, new_Z, levels=fixed_levels, alpha=0.9, vmin=0, vmax=12, cmap='YlOrRd')
 
         for i in range(8):
             annotations[i].set_text(f'Ch{i+1}\n{new_Z[i]:.2f}')
@@ -235,10 +236,11 @@ def plot_mould_function(mould_function, title = None):
             z_height_z.append(mould_function(x_coord,y_coord))
     fixed_levels = np.linspace(0, 15, 30)
 
-    CS = ax.tricontourf(z_height_x, z_height_y, z_height_z, levels=fixed_levels, alpha=0.7, vmin=0, vmax=12, cmap='inferno')
+    CS = ax.tricontourf(z_height_x, z_height_y, z_height_z, levels=fixed_levels, alpha=0.9, vmin=0, vmax=12, cmap='YlOrRd')
     CS.set_clim(0, 12)
     cbar = plt.colorbar(CS, ax=ax, shrink=0.8)
     cbar.ax.set_ylabel('Height Z (mm)', rotation=270)
+
 
 def plot_stage_cop_xy_horizontal_vertical(stage_cop_xy_horizontal_vertical_obj, orientation, coordinate):
     for stage in stage_cop_xy_horizontal_vertical_obj[orientation]['stage'].keys():
