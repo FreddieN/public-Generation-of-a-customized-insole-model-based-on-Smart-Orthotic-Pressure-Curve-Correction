@@ -99,8 +99,8 @@ def plot_insole_image():
         plt.plot([coords[0]], [coords[1]], marker='x', markersize=3, label=f"Channel {sensor}")
         plt.text(coords[0]-5, coords[1]+8, str(sensor), fontsize=14, color="white")
     # plt.legend()
-    ax.text(5, 12, 'Heel', bbox={'facecolor': 'white', 'alpha': 1, 'pad': 5})
-    ax.text(202, 12, 'Toe', bbox={'facecolor': 'white', 'alpha': 1, 'pad': 5})
+    ax.text(0, 0, 'Heel', bbox={'facecolor': 'white', 'alpha': 1, 'pad': 5})
+    ax.text(220, 0, 'Toe', ha='right', bbox={'facecolor': 'white', 'alpha': 1, 'pad': 5})
     return fig, ax
 
 img_width = 220
