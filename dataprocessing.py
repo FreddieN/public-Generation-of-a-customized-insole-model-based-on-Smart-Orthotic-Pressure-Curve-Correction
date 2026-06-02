@@ -461,29 +461,29 @@ def get_stage_cop_xy_horizontal_vertical(manifest):
 def get_manifest_mould_rmse_step_vs_mean(mould, manifest):
     overall_cop_df = get_manifest_overall_cop_pressure(mould=mould, manifest=manifest)
     stacked_cop_df = get_manifest_stacked_cop_pressure(mould=mould, manifest=manifest)
-    x_mseq = []
-    y_mseq = []
+    x_rmse = []
+    y_rmse = []
     for i in range(0, len(stacked_cop_df), 10):
         step_cop = stacked_cop_df.iloc[i : i + 10]
-        x_mseq.append(root_mean_squared_error(step_cop["CoP_x"], overall_cop_df["CoP_x"]))
-        y_mseq.append(root_mean_squared_error(step_cop["CoP_y"], overall_cop_df["CoP_y"]))
-    mean_x_mseq = np.mean(x_mseq)
-    mean_y_mseq = np.mean(y_mseq)
+        x_rmse.append(root_mean_squared_error(step_cop["CoP_x"], overall_cop_df["CoP_x"]))
+        y_rmse.append(root_mean_squared_error(step_cop["CoP_y"], overall_cop_df["CoP_y"]))
+    mean_x_rmse = np.mean(x_rmse)
+    mean_y_rmse = np.mean(y_rmse)
     return {
-        "mean_x_mseq": mean_x_mseq,
-        "mean_y_mseq": mean_y_mseq
+        "mean_x_rmse": mean_x_rmse,
+        "mean_y_rmse": mean_y_rmse
     }
 
 def get_manifest_mould_individual_steps_rmse_step_vs_mean(mould, manifest):
     overall_cop_df = get_manifest_overall_cop_pressure(mould=mould, manifest=manifest)
     stacked_cop_df = get_manifest_stacked_cop_pressure(mould=mould, manifest=manifest)
-    x_mseq = []
-    y_mseq = []
+    x_rmse = []
+    y_rmse = []
     for i in range(0, len(stacked_cop_df), 10):
         step_cop = stacked_cop_df.iloc[i : i + 10]
-        x_mseq.append(root_mean_squared_error(step_cop["CoP_x"], overall_cop_df["CoP_x"]))
-        y_mseq.append(root_mean_squared_error(step_cop["CoP_y"], overall_cop_df["CoP_y"]))
+        x_rmse.append(root_mean_squared_error(step_cop["CoP_x"], overall_cop_df["CoP_x"]))
+        y_rmse.append(root_mean_squared_error(step_cop["CoP_y"], overall_cop_df["CoP_y"]))
     return {
-        "x_mseq": x_mseq,
-        "y_mseq": y_mseq
+        "x_rmse": x_rmse,
+        "y_rmse": y_rmse
     }

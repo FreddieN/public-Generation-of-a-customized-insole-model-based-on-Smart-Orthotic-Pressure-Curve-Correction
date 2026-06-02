@@ -681,9 +681,9 @@ def plot_repeatability_manifest_rmse_error_bars():
         labels.append(selected_mould)
         rmse_data_x.append(rmse_steps["x_mseq"])
         rmse_data_y.append(rmse_steps["y_mseq"])
-    plot_repeatability_error_bars(rmse_data_x, labels, y_label="per-step CoP x deviation (mm)")
+    plot_repeatability_error_bars(rmse_data_x, labels, y_label="per-step CoP x RMSE (mm)")
     plt.show()
-    plot_repeatability_error_bars(rmse_data_y, labels, y_label="per-step CoP y deviation (mm)")
+    plot_repeatability_error_bars(rmse_data_y, labels, y_label="per-step CoP y RMSE (mm)")
     plt.show()
 
 INITIAL_MENU_OPERATIONS = {
