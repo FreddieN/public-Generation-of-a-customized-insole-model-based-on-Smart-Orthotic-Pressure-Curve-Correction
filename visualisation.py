@@ -250,3 +250,10 @@ def plot_stage_cop_xy_horizontal_vertical(stage_cop_xy_horizontal_vertical_obj, 
     plt.ylabel(f"{coordinate} (mm)")
     plt.title(f"{orientation} orientation / {coordinate} coordinate")
     plt.legend()
+
+def plot_repeatability_error_bars(rmse_data, labels, y_label):
+    fig, ax = plt.subplots()
+    ax.boxplot(rmse_data, tick_labels=labels, showmeans=True)
+    ax.set_ylabel(ylabel=y_label)
+    ax.set_ylim([0, 60])
+    ax.set_xlabel(xlabel="Insole")

@@ -1,5 +1,5 @@
-from dataprocessing import serial_recording_df, serial_df_to_force_df, get_testset_listing, get_batches_listing, serial_df_to_resistance_df, serial_df_to_conductance_df, fsr_voltage_to_newtons, get_average_sensor_force_batch, get_sensor_peak_force_step, get_manifest_listing, get_mould_force_from_manifest, get_manifest_moulds, get_average_sensor_force_manifest_mould, get_sensor_peak_force_step_manifest, get_manifest_step_cop_pressure, get_manifest_overall_cop_pressure, get_cop_listing, inverse_design_find_angles, get_manifest_stacked_cop_pressure, get_stage_cop_xy_horizontal_vertical
-from visualisation import plot_readings, plot_readings_with_step_indication, plot_calibration, plot_calibration_conductance, plot_calibration_resistance, plot_force_map, plot_animated_step_force_map, plot_cop, plot_mould_function, plot_insole_image, plot_stage_cop_xy_horizontal_vertical
+from dataprocessing import serial_recording_df, serial_df_to_force_df, get_testset_listing, get_batches_listing, serial_df_to_resistance_df, serial_df_to_conductance_df, fsr_voltage_to_newtons, get_average_sensor_force_batch, get_sensor_peak_force_step, get_manifest_listing, get_mould_force_from_manifest, get_manifest_moulds, get_average_sensor_force_manifest_mould, get_sensor_peak_force_step_manifest, get_manifest_step_cop_pressure, get_manifest_overall_cop_pressure, get_cop_listing, inverse_design_find_angles, get_manifest_stacked_cop_pressure, get_stage_cop_xy_horizontal_vertical, get_manifest_mould_rmse_step_vs_mean, get_manifest_mould_individual_steps_rmse_step_vs_mean
+from visualisation import plot_readings, plot_readings_with_step_indication, plot_calibration, plot_calibration_conductance, plot_calibration_resistance, plot_force_map, plot_animated_step_force_map, plot_cop, plot_mould_function, plot_insole_image, plot_stage_cop_xy_horizontal_vertical, plot_repeatability_error_bars
 import matplotlib.pyplot as plt
 from stepsegmentation import find_step_segments
 import os
@@ -638,6 +638,54 @@ def display_stage_cop_xy_horizontal_vertical():
     plot_stage_cop_xy_horizontal_vertical(stage_cop_xy_horizontal_vertical_obj, selected_orientation, selected_coordinate)
     plt.show()
 
+def display_manifest_mould_rmse_step_vs_mean():
+    available_manifests = {item: item for item in get_manifest_listing()}
+    print("Select Manifest")
+    (selected_manifest, selected_manifest_user_input) = display_operations_and_prompt_for_user_input_and_return(available_manifests)
+    print(f"User selected {selected_manifest}")
+    available_moulds = {item: item for item in get_manifest_moulds(selected_manifest)}
+    (selected_mould, selected_mould_user_input) = display_operations_and_prompt_for_user_input_and_return(available_moulds)
+    print(f"User selected {selected_mould}")
+    rmse = get_manifest_mould_rmse_step_vs_mean(selected_mould,selected_manifest)
+    print("Root mean sequare error (x): ")
+    print(rmse["mean_x_mseq"])
+    print("Root mean sequare error (y): ")
+    print(rmse["mean_y_mseq"])
+
+def display_manifest_all_moulds_rmse_step_vs_mean():
+    available_manifests = {item: item for item in get_manifest_listing()}
+    print("Select Manifest")
+    (selected_manifest, selected_manifest_user_input) = display_operations_and_prompt_for_user_input_and_return(available_manifests)
+    print(f"User selected {selected_manifest}")
+    available_moulds = {item: item for item in get_manifest_moulds(selected_manifest)}
+    for selected_mould in available_moulds:
+        print(f"Selected Mould: {selected_mould}")
+        rmse = get_manifest_mould_rmse_step_vs_mean(selected_mould,selected_manifest)
+        print("Root mean sequare error (x): ")
+        print(rmse["mean_x_mseq"])
+        print("Root mean sequare error (y): ")
+        print(rmse["mean_y_mseq"])
+
+def plot_repeatability_manifest_rmse_error_bars():
+    available_manifests = {item: item for item in get_manifest_listing()}
+    print("Select Manifest")
+    (selected_manifest, selected_manifest_user_input) = display_operations_and_prompt_for_user_input_and_return(available_manifests)
+    print(f"User selected {selected_manifest}")
+    available_moulds = {item: item for item in get_manifest_moulds(selected_manifest)}
+    rmse_data_x = []
+    rmse_data_y = []
+    labels = []
+    for selected_mould in available_moulds:
+        print(f"Selected Mould: {selected_mould}")
+        rmse_steps = get_manifest_mould_individual_steps_rmse_step_vs_mean(selected_mould,selected_manifest)
+        labels.append(selected_mould)
+        rmse_data_x.append(rmse_steps["x_mseq"])
+        rmse_data_y.append(rmse_steps["y_mseq"])
+    plot_repeatability_error_bars(rmse_data_x, labels, y_label="per-step CoP x deviation (mm)")
+    plt.show()
+    plot_repeatability_error_bars(rmse_data_y, labels, y_label="per-step CoP y deviation (mm)")
+    plt.show()
+
 INITIAL_MENU_OPERATIONS = {
     "Record a serial recording from ADS1256": start_recording,
     "Display an individual batch's raw serial recordings": display_individual_batch_serial_recordings,
@@ -672,6 +720,9 @@ INITIAL_MENU_OPERATIONS = {
     "Inverse Design based on desired CoP": calculate_angles_inverse_design_linear_interpolation_for_desired_cop,
     "Display manifest mould CoP with steps": display_individual_manifest_mould_stacked_cop,
     "Display stage cop xy horizontal vertical": display_stage_cop_xy_horizontal_vertical,
+    "Display manifest mould RMSE step vs mean": display_manifest_mould_rmse_step_vs_mean,
+    "Display manifest moulds RMSE step vs mean": display_manifest_all_moulds_rmse_step_vs_mean,
+    "Display repeatability plot for manifest": plot_repeatability_manifest_rmse_error_bars,
 }
 
 if __name__ == '__main__':

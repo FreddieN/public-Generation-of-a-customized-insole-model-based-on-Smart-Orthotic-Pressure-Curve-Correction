@@ -10,6 +10,7 @@ from constants import sensor_coords
 from scipy.stats import multivariate_normal
 from scipy.ndimage import gaussian_filter
 from scipy.interpolate import interp1d, LinearNDInterpolator
+from sklearn.metrics import root_mean_squared_error
 
 def serial_recording_df(raw_serial_data):
     data_for_dataframe = []
@@ -457,4 +458,32 @@ def get_stage_cop_xy_horizontal_vertical(manifest):
         overall_stage_cop_xy["horizontal"]["stage"][stage]["degree"] = degree_value
     return overall_stage_cop_xy
 
-        
+def get_manifest_mould_rmse_step_vs_mean(mould, manifest):
+    overall_cop_df = get_manifest_overall_cop_pressure(mould=mould, manifest=manifest)
+    stacked_cop_df = get_manifest_stacked_cop_pressure(mould=mould, manifest=manifest)
+    x_mseq = []
+    y_mseq = []
+    for i in range(0, len(stacked_cop_df), 10):
+        step_cop = stacked_cop_df.iloc[i : i + 10]
+        x_mseq.append(root_mean_squared_error(step_cop["CoP_x"], overall_cop_df["CoP_x"]))
+        y_mseq.append(root_mean_squared_error(step_cop["CoP_y"], overall_cop_df["CoP_y"]))
+    mean_x_mseq = np.mean(x_mseq)
+    mean_y_mseq = np.mean(y_mseq)
+    return {
+        "mean_x_mseq": mean_x_mseq,
+        "mean_y_mseq": mean_y_mseq
+    }
+
+def get_manifest_mould_individual_steps_rmse_step_vs_mean(mould, manifest):
+    overall_cop_df = get_manifest_overall_cop_pressure(mould=mould, manifest=manifest)
+    stacked_cop_df = get_manifest_stacked_cop_pressure(mould=mould, manifest=manifest)
+    x_mseq = []
+    y_mseq = []
+    for i in range(0, len(stacked_cop_df), 10):
+        step_cop = stacked_cop_df.iloc[i : i + 10]
+        x_mseq.append(root_mean_squared_error(step_cop["CoP_x"], overall_cop_df["CoP_x"]))
+        y_mseq.append(root_mean_squared_error(step_cop["CoP_y"], overall_cop_df["CoP_y"]))
+    return {
+        "x_mseq": x_mseq,
+        "y_mseq": y_mseq
+    }
