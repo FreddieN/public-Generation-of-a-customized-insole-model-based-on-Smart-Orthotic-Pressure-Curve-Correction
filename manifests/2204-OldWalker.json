@@ -1,0 +1,46 @@
+{
+    "moulds": {
+        "0": {
+            "recordings": [
+                "220426-OldWalker/0_50_batch1serial_record_20260422_134754.txt",
+                "220426-OldWalker/0_50_batch2serial_record_20260422_140136.txt",
+                "220426-OldWalker/0_50_batch3serial_record_20260424_151416.txt",
+                "220426-OldWalker/0_50_batch4serial_record_20260424_150148.txt"
+            ]
+        },
+        "1v": {
+            "recordings": [
+                "220426-OldWalker/1v_50_batch3serial_record_20260424_164059.txt",
+                "220426-OldWalker/1v_50_batch4serial_record_20260424_164647.txt"
+            ]
+        },
+        "1h": {
+             "recordings": [
+                "220426-OldWalker/1h_50_batch1serial_record_20260422_165043.txt"
+            ]
+        },
+        "1.5v": {
+             "recordings": [
+                "220426-OldWalker/1.5v_50_batch1serial_record_20260424_172136.txt",
+                "220426-OldWalker/1.5v_50_batch2serial_record_20260424_175641.txt"
+            ]
+        },
+        "2v": {
+            "recordings": [
+                "220426-OldWalker/2v_50_batch_1serial_record_20260422_122604.txt",
+                "220426-OldWalker/2v_50_batch_2serial_record_20260422_130047.txt"
+            ]
+        },
+        "2h": {
+             "recordings": [
+                "220426-OldWalker/2h_50_batch2serial_record_20260424_093746.txt"
+            ]
+        },
+        "3h": {
+             "recordings": [
+                "220426-OldWalker/3h_50_batch1serial_record_20260424_103301.txt",
+                "220426-OldWalker/3h_50_batch2serial_record_20260424_104853.txt"
+            ]
+        }
+    }
+}
