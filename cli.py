@@ -648,9 +648,9 @@ def display_manifest_mould_rmse_step_vs_mean():
     print(f"User selected {selected_mould}")
     rmse = get_manifest_mould_rmse_step_vs_mean(selected_mould,selected_manifest)
     print("Root mean sequare error (x): ")
-    print(rmse["mean_x_mseq"])
+    print(rmse["mean_x_rmse"])
     print("Root mean sequare error (y): ")
-    print(rmse["mean_y_mseq"])
+    print(rmse["mean_y_rmse"])
 
 def display_manifest_all_moulds_rmse_step_vs_mean():
     available_manifests = {item: item for item in get_manifest_listing()}
@@ -661,10 +661,10 @@ def display_manifest_all_moulds_rmse_step_vs_mean():
     for selected_mould in available_moulds:
         print(f"Selected Mould: {selected_mould}")
         rmse = get_manifest_mould_rmse_step_vs_mean(selected_mould,selected_manifest)
-        print("Root mean sequare error (x): ")
-        print(rmse["mean_x_mseq"])
-        print("Root mean sequare error (y): ")
-        print(rmse["mean_y_mseq"])
+        print("Mean root mean sequare error (x): ")
+        print(rmse["mean_x_rmse"])
+        print("Mean root mean sequare error (y): ")
+        print(rmse["mean_y_rmse"])
 
 def plot_repeatability_manifest_rmse_error_bars():
     available_manifests = {item: item for item in get_manifest_listing()}
