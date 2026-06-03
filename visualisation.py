@@ -100,6 +100,8 @@ def plot_insole_image():
         plt.text(coords[0]-5, coords[1]+8, str(sensor), fontsize=14, color="white")
     # plt.legend()
     ax.text(0, 0, 'Heel', bbox={'facecolor': 'white', 'alpha': 1, 'pad': 5})
+    ax.text(110, 0, 'Lateral', bbox={'facecolor': 'white', 'alpha': 1, 'pad': 5})
+    ax.text(110, 70, 'Medial', bbox={'facecolor': 'white', 'alpha': 1, 'pad': 5})
     ax.text(220, 0, 'Toe', ha='right', bbox={'facecolor': 'white', 'alpha': 1, 'pad': 5})
     return fig, ax
 
