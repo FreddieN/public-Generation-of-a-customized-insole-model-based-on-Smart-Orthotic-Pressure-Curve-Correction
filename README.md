@@ -3,6 +3,7 @@
 This repository contains the Command Line Interface used for data analysis within the Master's project and the original raw testset data recorded from the dynamic walker.
 
 The CLI allows you run the following operations on the master's dataset: 
+
 0. Record a serial recording from ADS1256
 1. Display an individual batch's raw serial recordings
 2. Display an individual batch's resistance recordings
