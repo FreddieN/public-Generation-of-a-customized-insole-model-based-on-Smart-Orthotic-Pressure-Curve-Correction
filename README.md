@@ -2,7 +2,7 @@
 
 This repository contains the Command Line Interface used for data analysis within the Master's project and the original raw testset data recorded from the dynamic walker.
 
-The CLI allows you run the following operations on the master's dataset:  
+The CLI allows you run the following operations on the master's dataset: 
 0. Record a serial recording from ADS1256
 1. Display an individual batch's raw serial recordings
 2. Display an individual batch's resistance recordings
@@ -42,16 +42,16 @@ The CLI allows you run the following operations on the master's dataset:
 4. Run the CLI with `python cli.py`
 
 # Project Structure
-cli.py - Contains the main user interface for using the application
-dataprocessing.py - Used for all data processing including manifest handling, CoP calculations and repeatability calculations.
-constants.py - Contains constants such as the sensor coordinates
-mould_functions.py - Stores the mould functions for visualising the geometry of the moulds.
-record_serial.py - Used for recording readings from the ADS1256 fitted to the dynamic walker.
-stepsegmentation.py - Used for segmenting steps within each recording.
-visualisation.py - Visualises the processed data using Matplotlib
+* cli.py - Contains the main user interface for using the application
+* dataprocessing.py - Used for all data processing including manifest handling, CoP calculations and repeatability calculations.
+* constants.py - Contains constants such as the sensor coordinates
+* mould_functions.py - Stores the mould functions for visualising the geometry of the moulds.
+* record_serial.py - Used for recording readings from the ADS1256 fitted to the dynamic walker.
+* stepsegmentation.py - Used for segmenting steps within each recording.
+* visualisation.py - Visualises the processed data using Matplotlib
 
-ESP32-Firmware - The firmware adapted from CuriousScientist used as a datalogger for the ADS1256 on the ESP32
-assets - Insole image
-calibrations - Stores calibration data of the FSRs
-desired_cops - Stores the desired CoPs entered into the program for inverse design
-manifests - Stores the JSON manifest files that are used for sorting the testset batches into individual insole trials.
+* ESP32-Firmware - The firmware adapted from CuriousScientist used as a datalogger for the ADS1256 on the ESP32
+* assets - Insole image
+* calibrations - Stores calibration data of the FSRs
+* desired_cops - Stores the desired CoPs entered into the program for inverse design
+* manifests - Stores the JSON manifest files that are used for sorting the testset batches into individual insole trials.
