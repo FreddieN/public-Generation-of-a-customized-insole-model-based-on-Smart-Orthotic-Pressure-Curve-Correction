@@ -9,42 +9,42 @@ def deg2rad(deg):
 
 def mould_0_z_magnitude(x, y):
     x = img_width-x
-    y = img_height-y
+    y = y
     return 5
 
 def mould_1v_z_magnitude(x, y):
     rad = deg2rad(1)
     x = img_width-x
-    y = img_height-y
+    y = y
     return 5 + x*tan(rad)
 
 def mould_1h_z_magnitude(x, y):
     x = img_width-x
-    y = img_height-y
+    y = y
     rad = deg2rad(1)
     return 5 + y*tan(rad)
 
 def mould_1dot5v_z_magnitude(x, y):
     x = img_width-x
-    y = img_height-y
+    y = y
     rad = deg2rad(1.5)
     return 5 + x*tan(rad)
 
 def mould_2v_z_magnitude(x, y):
     x = img_width-x
-    y = img_height-y
+    y = y
     rad = deg2rad(2)
     return 5 + x*tan(rad)
 
 def mould_2h_z_magnitude(x, y):
     x = img_width-x
-    y = img_height-y
+    y = y
     rad = deg2rad(2)
     return 5 + y*tan(rad)
 
 def mould_3h_z_magnitude(x, y):
     x = img_width-x
-    y = img_height-y
+    y = y
     rad = deg2rad(3)
     return 5 + y*tan(rad)
 
